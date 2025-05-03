@@ -55,18 +55,20 @@ async function sendEmail(to) {
   try {
     const info = await transporter.sendMail(mailOptions);
     console.log(`✅ Sent to ${to}`);
-    await logStatus(to, 'Pass');
+    await logStatus(to, 'Pass', info.response, info.messageId, subject);
+    // await logStatus(to, 'Pass');
   } catch (error) {
     console.error(`❌ Failed to send to ${to}:`, error.message);
-    await logStatus(to, 'Fail');
+    await logStatus(to, 'Fail', error.message, '', subject);
+    // await logStatus(to, 'Fail');
   }
 }
 
 // === FUNCTION TO LOG STATUS ===
-function logStatus(email, status) {
+function logStatus(email, status, response = '', messageId = '', subject = '') {
   const now = new Date();
-  const timestamp = now.toISOString().split('.')[0]; // Removes milliseconds and Z
-  const log = `${timestamp} - ${email} - ${status}\n`;
+  const timestamp = now.toISOString().split('.')[0];
+  const log = `${timestamp} - ${email} - ${status} - Response: ${response} - Message-ID: ${messageId} - Subject: ${subject}\n`;
   return fs.promises.appendFile(logFilePath, log);
 }
 
