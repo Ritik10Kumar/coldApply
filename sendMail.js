@@ -6,27 +6,35 @@ require('dotenv').config(); // Load .env variables
 // === CONFIGURATION ===
 const senderEmail = process.env.EMAIL;
 const senderPassword = process.env.EMAIL_PASSWORD;
-const resumePath = path.join(__dirname, 'Ritik_Kumar.pdf');
+const resumePath = path.join(__dirname, 'RitikKumar.pdf');
 const logFilePath = path.join(__dirname, 'email_status.txt');
 
 const subject = 'Applying for Node.js Developer';
 const message = `Hello
-I'm writing to express my interest in the Node JS Developer role with 3.5 years of experience in Node.js, MongoDB, PostgreSQL, JavaScript, and System Design. I’ve contributed to building scalable, high-performance applications in agile teams.
+I am writing to express my interest in the Node.js Developer role. I have 3.5 years of experience working with Node.js, MongoDB, PostgreSQL, JavaScript, Kafka and System Design. During this time, I have contributed to the development of scalable, high-performance applications within agile teams.
 
-I've attached my resume for your review and would appreciate the opportunity to discuss how I can add value to your team.
+My current CTC is ₹9 LPA, and I am seeking a CTC of ₹13 LPA. I am currently based in Gurgaon and available to join immediately.
+
+I have attached my resume for your review. I would appreciate the opportunity to discuss how my experience and skills can contribute to your team.
 
 Looking forward to hearing from you.
 
 Best regards,
-Ritik Kumar`;
+Ritik Kumar
+ritik10kumar@gmail.com | 8193045571`;
 
 const recipientEmails = [
-  'recruitment@mtap.in',
-  'career@appinventiv.com',
-  'hr@delemontstudio.com',
-  'hr@technodeviser.com',
-  'hr@weevolve.ai',
-  'hr@zentosys.ai'
+  'hiring@akamai.com',
+  'hr@codetribesolutions.com',
+  'techeruditehr@getMaxListeners.com',   // 7383590522
+  'nidhi@nomadcredit.com',
+  'hiring.wamasoftware@gmail.com',
+  'connect@innovaesi.com',     //1800-102-7233
+  'career@worldwebtechnology.com',
+  'hr@aipxperts.com',    //9099985430
+  'maheshwari.pandya@aipxperts.com',
+  'support@maxifysolution.com',
+  'hr@thinkwik.com',    //9888318989
 ];
 
 // === FUNCTION TO SEND EMAIL ===
@@ -46,7 +54,7 @@ async function sendEmail(to) {
     text: message,
     attachments: [
       {
-        filename: 'Ritik_Kumar.pdf',
+        filename: 'RitikKumar.pdf',
         path: resumePath,
       },
     ],
